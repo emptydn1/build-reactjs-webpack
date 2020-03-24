@@ -1,5 +1,5 @@
 const path = require("path");
-const webpack = require("webpack");
+// const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const VENDOR_LIB = [
@@ -27,7 +27,8 @@ const output = {
 };
 
 const devServer = {
-  contentBase: path.join(__dirname, "src")
+  contentBase: path.join(__dirname, "dist"),
+  port: 3000
 };
 
 const _module = {
@@ -74,7 +75,7 @@ const plugins = [
 ];
 
 module.exports = {
-  mode: "development",
+  mode: process.env.NODE_ENV || "development",
   entry,
   output,
   devServer,
